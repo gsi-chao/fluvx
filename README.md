@@ -1,4 +1,5 @@
 # fluvxx
+Fluvx is a stage manager inspired in Vuex Api and the React Hooks ecosystem.
 
 ## Project setup
 ```
