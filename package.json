@@ -14,7 +14,8 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "build:lib": "vue-cli-service build --target lib --name fluvx src/index.ts && tsc --emitDeclarationOnly",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "semver": "semantic-release"
   },
   "dependencies": {
     "core-js": "^3.6.5",
