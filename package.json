@@ -1,6 +1,6 @@
 {
   "name": "fluvx",
-  "version": "0.1.0",
+  "version": "1.0.0-beta.1",
   "private": false,
   "license": "MIT",
   "main": "dist/fluvx.common.js",
