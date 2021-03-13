@@ -1,2 +1,2 @@
 export { createStore, Store } from "./fluvx";
-export { VStoreProps, ActionContext } from "./types";
+export { VStoreProps, StoreContext } from "./types";

@@ -1,4 +1,4 @@
-import { createStore, ActionContext } from "@/index";
+import { createStore, StoreContext } from "@/index";
 
 interface OurState {
   count: number;
@@ -69,7 +69,7 @@ describe("test state of store", () => {
         }
       },
       actions: {
-        increment({ commit }: ActionContext<OurState>, payload: unknown) {
+        increment({ commit }: StoreContext<OurState>, payload: unknown) {
           commit("increment", payload);
         }
       }

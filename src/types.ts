@@ -5,7 +5,7 @@ export interface VStoreProps<T extends object> {
   actions?: Record<string, Function>;
 }
 
-export interface ActionContext<T extends object> {
+export interface StoreContext<T extends object> {
   state: T;
   commit: (type: string, payload?: unknown) => Promise<unknown>;
   dispatch: (type: string, payload?: unknown) => void;
