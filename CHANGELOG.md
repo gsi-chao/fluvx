@@ -1,3 +1,10 @@
+# [1.0.0-beta.2](https://github.com/gsi-chao/fluvx/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2021-03-13)
+
+
+### Bug Fixes
+
+* change store context interface name ([c174437](https://github.com/gsi-chao/fluvx/commit/c174437b3dc21bad85bbed2b3c04541b3d46a2ab))
+
 # 1.0.0-beta.1 (2021-03-12)
 
 
