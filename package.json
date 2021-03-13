@@ -15,7 +15,10 @@
     "lint": "vue-cli-service lint",
     "build:lib": "vue-cli-service build --target lib --name fluvx src/index.ts && tsc --emitDeclarationOnly",
     "commit": "git-cz",
-    "semver": "semantic-release"
+    "semver": "semantic-release",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
   },
   "dependencies": {
     "core-js": "^3.6.5",
