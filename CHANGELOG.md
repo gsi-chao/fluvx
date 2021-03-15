@@ -1,3 +1,10 @@
+# [1.0.0-beta.3](https://github.com/gsi-chao/fluvx/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2021-03-15)
+
+
+### Features
+
+* update readme ([25425d7](https://github.com/gsi-chao/fluvx/commit/25425d7f8b7729320ac9e1d90057b174d86b532b))
+
 # [1.0.0-beta.2](https://github.com/gsi-chao/fluvx/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2021-03-13)
 
 

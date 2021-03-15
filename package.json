@@ -1,6 +1,6 @@
 {
   "name": "fluvx",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "private": false,
   "license": "MIT",
   "description": "Fluvx is a stage manager inspired in Vuex API and base on Reactivity API from Vue 3",
