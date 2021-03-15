@@ -1,4 +1,4 @@
-import { createStore, StoreContext } from "@/index";
+import { createStore, StoreContext } from "../../../src";
 
 interface OurState {
   count: number;
@@ -6,6 +6,7 @@ interface OurState {
     firstName: string;
   };
 }
+
 describe("test state of store", () => {
   const testState = {
     count: 0,
@@ -38,6 +39,30 @@ describe("test state of store", () => {
     expect(store.state.count).toBe(0);
     store.commit("increment", 1);
     expect(store.state.count).toBe(1);
+  });
+
+  test("Test not defined Mutations", () => {
+    const store = createStore<OurState>({
+      state: { ...testState },
+      mutations: {
+        increment(state: OurState, n: number) {
+          state.count += n;
+        }
+      }
+    });
+    const run = () => store.commit("inc", 1);
+    expect(run).toThrow("The mutation is not defined");
+  });
+
+  test("Test create store with not mutations", () => {
+    const run = () =>
+      createStore<OurState>({
+        state: { ...testState },
+        mutations: {}
+      });
+    expect(run).toThrow(
+      "It is necessary to define mutations to change states."
+    );
   });
 
   test("Test Getters", async () => {
@@ -78,5 +103,23 @@ describe("test state of store", () => {
     expect(store.state.count).toEqual(0);
     store.dispatch("increment", 1);
     expect(store.state.count).toEqual(1);
+  });
+
+  test("Test not defined Action", () => {
+    const store = createStore<OurState>({
+      state: { ...testState },
+      mutations: {
+        increment(state: OurState, n: number) {
+          state.count += n;
+        }
+      },
+      actions: {
+        increment({ commit }: StoreContext<OurState>, payload: unknown) {
+          commit("increment", payload);
+        }
+      }
+    });
+    const run = () => store.dispatch("inc", 1);
+    expect(run).toThrow("The action is not defined");
   });
 });

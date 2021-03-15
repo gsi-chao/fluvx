@@ -3,8 +3,20 @@
   "version": "1.0.0-beta.2",
   "private": false,
   "license": "MIT",
+  "description": "Fluvx is a stage manager inspired in Vuex API and base on Reactivity API from Vue 3",
+  "keywords": [
+    "vue3",
+    "vue",
+    "state manager",
+    "vuex",
+    "reactivity"
+  ],
   "main": "dist/fluvx.common.js",
   "types": "dist/types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gsi-chao/fluvx.git"
+  },
   "files": [
     "dist"
   ],
@@ -12,13 +24,11 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
+    "test:coverage": "vue-cli-service test:unit --coverage",
     "lint": "vue-cli-service lint",
     "build:lib": "vue-cli-service build --target lib --name fluvx src/index.ts && tsc --emitDeclarationOnly",
     "commit": "git-cz",
-    "semver": "semantic-release",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "semver": "semantic-release"
   },
   "dependencies": {
     "core-js": "^3.6.5",

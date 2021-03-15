@@ -1,13 +1,13 @@
 import { reactive, readonly, computed } from "vue";
-import { VStoreProps } from "./types";
-import { isPromise } from "./util";
+import { StoreContext, VStoreProps } from "./types";
+import { isEmpty, isPromise } from "./util";
 
 export class Store<T extends object> {
   state: T;
 
   mutations: Record<string, Function>;
 
-  getters: Record<string, unknown>;
+  getters: Record<string, Function>;
 
   actions?: Record<string, Function>;
 
@@ -21,7 +21,7 @@ export class Store<T extends object> {
   }
 
   commit(type: string, payload?: unknown) {
-    const mutation = this.mutations[type] || {};
+    const mutation = this.mutations[type] || null;
     if (mutation) {
       mutation(payload);
     } else {
@@ -31,21 +31,21 @@ export class Store<T extends object> {
 
   dispatch(type: string, payload?: unknown) {
     if (this.actions && this.actions[type]) {
-      const action = this.actions[type] || {};
+      const action = this.actions[type];
       return action(payload);
     }
     throw Error("The action is not defined");
   }
 
   registerMutations(mutation: Record<string, Function>) {
-    if (mutation) {
+    if (!isEmpty(mutation)) {
       const mut: Record<string, Function> = {};
       Object.keys(mutation).forEach(value => {
         mut[value] = this.registerMutationCallback(this, mutation[value]);
       });
       return mut;
     }
-    throw Error("It is necessary to define mutations to change states. ");
+    throw Error("It is necessary to define mutations to change states.");
   }
 
   registerMutationCallback(store: Store<T>, handler: Function) {
@@ -55,8 +55,8 @@ export class Store<T extends object> {
   }
 
   registerGetters(getters: Record<string, Function> | undefined) {
-    if (getters) {
-      const gett: Record<string, unknown> = {};
+    if (getters && !isEmpty(getters)) {
+      const gett: Record<string, Function> = {};
       Object.keys(getters).forEach(value => {
         Object.defineProperty(gett, value, {
           get: () =>
@@ -74,7 +74,7 @@ export class Store<T extends object> {
   }
 
   registerActions(actions: Record<string, Function> | undefined) {
-    if (actions) {
+    if (actions && !isEmpty(actions)) {
       const act: Record<string, Function> = {};
       Object.keys(actions).forEach(value => {
         act[value] = this.registerActionCallback(this, actions[value]);
@@ -103,14 +103,15 @@ export class Store<T extends object> {
   }
 }
 
-export function createStore<T extends object>(props: VStoreProps<T>) {
+export function createStore<T extends object>(
+  props: VStoreProps<T>
+): StoreContext<T> {
   const store = new Store<T>(props);
 
   return {
     dispatch: store.dispatch,
     commit: store.commit,
     state: readonly(store.state),
-    mutations: store.mutations,
     getters: store.getters
   };
 }
