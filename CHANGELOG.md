@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/gsi-chao/fluvx/compare/v1.0.0...v1.1.0) (2021-03-15)
+
+
+### Features
+
+* update codecov path and fluvx logo ([49c7b38](https://github.com/gsi-chao/fluvx/commit/49c7b3856a8121a1d72f5ecfe65ee486fac18883))
+
 # 1.0.0 (2021-03-15)
 
 
