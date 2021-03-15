@@ -6,7 +6,7 @@
 
 
 # Fluvx
-<img src='https://github.com/gsi-chao/fluvx/fluvx.png' alt="Fluvx">
+<img src='https://raw.githubusercontent.com/gsi-chao/fluvx/main/fluvx.png' alt="Fluvx">
 
 Fluvx is a stage manager inspired in Vuex API and base on Reactivity API from Vue 3. Its main goal is simplicity and for this it provides composable functions to create stores in a simple way. It is written in Typescript and has full support.
 
