@@ -96,7 +96,12 @@
     "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
     "transform": {
       "^.+\\.vue$": "vue-jest"
-    }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.types.ts",
+      "!**/node_modules/**"
+    ]
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
